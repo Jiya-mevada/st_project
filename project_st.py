@@ -124,15 +124,15 @@ with col3:
                                 document_name = candidate
                             break
                     names["AADHAAR"] = document_name
-                    
 
-                    address_match = re.search(r'(?:D\/O|S\/O|W\/O)\s*[^,]+,\s*(.*?)(?=\b\d{6}\b)',text,re.IGNORECASE | re.DOTALL)
+
+                    address_match = re.search(r'(?:D\/O|S\/O|W\/O)\s*[^,]+,\s*(.*?)(\b\d{6}\b)',text, re.IGNORECASE | re.DOTALL)
                     if address_match:
-                        document_address = address_match.group(1).strip()
-                    document_address = re.sub(r'\s+', ' ', document_address)
+                        document_address = address_match.group(1).strip() + " " + address_match.group(2)
+                        document_address = re.sub(r'\s+', ' ', document_address).strip()
                     
                     st.subheader(doc_type)
-                    # st.write(text)
+                    st.write(text)
                     st.write("Name :", document_name)
                     st.write("DOB :", document_dob)
                     st.write("Document Number :", document_number)
