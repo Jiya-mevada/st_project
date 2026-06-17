@@ -132,7 +132,6 @@ with col3:
                         document_address = re.sub(r'\s+', ' ', document_address).strip()
                     
                     st.subheader(doc_type)
-                    st.write(text)
                     st.write("Name :", document_name)
                     st.write("DOB :", document_dob)
                     st.write("Document Number :", document_number)
